@@ -1,0 +1,22 @@
+public class Palindrome {
+
+	public static void main(String[] args) {
+	    int product = 0;
+        for(int i=100;i<=999;i++)
+        {
+            for(int j=i;j<=999;j++)
+            {
+                int product1 = i * j;
+                String sb = String.valueOf(product1);
+                String sb1 = new StringBuilder(sb).reverse().toString();
+        
+                if(sb.equals(sb1) && product<product1){
+                	product=product1;
+                }
+               
+            }
+         
+        }
+        System.out.println(product);
+	}
+}
