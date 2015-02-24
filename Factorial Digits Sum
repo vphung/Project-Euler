@@ -1,0 +1,31 @@
+import java.math.BigInteger;
+
+
+public class factorial_digit_sum {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		BigInteger sum = factorialDigitSum(100);
+		System.out.println(sum);
+	}
+
+
+	public static BigInteger factorialDigitSum(int max){
+		BigInteger sum = BigInteger.valueOf(0);
+		BigInteger result = BigInteger.valueOf(1);
+		BigInteger currentNum = BigInteger.valueOf(0);
+
+		for(long i = 1; i<=max; i++){
+			result  = result.multiply(BigInteger.valueOf(i));
+        //System.out.println(result);
+		}
+
+		while (!result.equals(BigInteger.valueOf(0))) {
+			sum = sum.add(result.mod(BigInteger.valueOf(10)));
+			result = result.divide(BigInteger.valueOf(10));
+		}
+		return sum;
+	}
+}
